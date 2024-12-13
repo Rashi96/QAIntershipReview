@@ -98,6 +98,12 @@ public class PayBilling {
 
     }
 
+    @Test
+    public void close(){
+        // Close Browser
+        this.driver.quit();
+    }
+
 }
 
 
