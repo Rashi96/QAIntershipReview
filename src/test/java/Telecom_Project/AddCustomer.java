@@ -177,7 +177,7 @@ public class AddCustomer {
     }
 
     @Test
-    public void TC_008(){
+    public void TC_008(){ // Verify that user cannot submit the form when "First name" field empty
 
         // Navigate Add customer
         driver.get("https://demo.guru99.com/telecom/addcustomer.php");
