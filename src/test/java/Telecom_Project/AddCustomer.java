@@ -215,8 +215,33 @@ public class AddCustomer {
         String actualMessage = validationMessage.getText();
         Assert.assertEquals(actualMessage, expectedMessage, "Validation message text does not match.");
 
+    }
+
+    @Test
+    public void TC_010(){ //Verify that user cannot submit the form with giving special characters to the "Last name" filed
+
+        // Navigate Add customer
+        driver.get("https://demo.guru99.com/telecom/addcustomer.php");
+
+        // Last Name
+        WebElement lastName =  driver.findElement(By.name("lname"));
+        lastName.sendKeys("@#$");
+
+        // Locate the validation message
+        WebElement validationMessage = driver.findElement(By.id("message50"));
+
+        // Validate the error message
+        String expectedMessage = "Special characters are not allowed";
+        String actualMessage = validationMessage.getText();
+        Assert.assertEquals(actualMessage, expectedMessage, "Validation message text does not match.");
+
+
+
+
 
     }
+
+
 
 }
 
