@@ -343,13 +343,127 @@ public class AddCustomer {
     @Test
     public void TC_016(){ //Verify that user can fill the address field with address special characters
 
+        // Navigate Add customer
+        driver.get("https://demo.guru99.com/telecom/addcustomer.php");
 
+        // Address
+        WebElement address = driver.findElement(By.name("addr"));
+        address.sendKeys("No 12, Galle Road, Matara.");
+
+        // Locate the validation message
+        WebElement validationMessage = driver.findElement(By.id("message3"));
+
+        // Validate the error message
+        String expectedMessage = "Special characters are not allowed";
+        String actualMessage = validationMessage.getText();
+        Assert.assertEquals(actualMessage, expectedMessage, "Validation message text does not match.");
 
     }
 
+    @Test
+    public void TC_017(){ //Verify that user cannot submit the form with giving only numerical value to address
 
+        // Navigate Add customer
+        driver.get("https://demo.guru99.com/telecom/addcustomer.php");
 
+        // Address
+        WebElement address = driver.findElement(By.name("addr"));
+        address.sendKeys("2343534");
 
+        // Error Message
+        String expectedMsg = "Invalid Address";
+        WebElement msg = this.driver.findElement(By.xpath("//*[contains(text(),'" + expectedMsg + "')]"));
+        boolean isMsg = msg.isDisplayed();
+        Assert.assertTrue(isMsg, "Error message");
+
+    }
+
+    @Test
+    public void TC_018(){ //Verify that user cannot submit the form with invalid phone no.
+
+        // Navigate Add customer
+        driver.get("https://demo.guru99.com/telecom/addcustomer.php");
+
+        // Mobile Number
+        WebElement mobile = driver.findElement(By.name("telephoneno"));
+        mobile.sendKeys("077989");
+
+        // Error Message
+        String expectedMsg = "Invalid Mobile Number";
+        WebElement msg = this.driver.findElement(By.xpath("//*[contains(text(),'" + expectedMsg + "')]"));
+        boolean isMsg = msg.isDisplayed();
+        Assert.assertTrue(isMsg, "Error message");
+
+    }
+
+    @Test
+    public void TC_019(){ // Verify that user cannot submit the form with empty phone no.
+
+        // Navigate Add customer
+        driver.get("https://demo.guru99.com/telecom/addcustomer.php");
+
+        // Mobile Number
+        WebElement mobile = driver.findElement(By.name("telephoneno"));
+        mobile.sendKeys("0779898223");
+        mobile.clear();
+
+        // Locate the validation message
+        WebElement validationMessage = driver.findElement(By.id("message7"));
+
+        // Validate the error message
+        String expectedMessage = "Mobile no must not be blank";
+        String actualMessage = validationMessage.getText();
+        Assert.assertEquals(actualMessage, expectedMessage, "Validation message text does not match.");
+    }
+
+    @Test
+    public void TC_020(){ //Verify that user can reset the form after filling all the fields
+
+        // Navigate Add customer
+        driver.get("https://demo.guru99.com/telecom/addcustomer.php");
+
+        // Fill the Form
+
+        // Background Check
+        WebElement BackgroundCheck = driver.findElement(By.cssSelector("label[for='done']"));
+        BackgroundCheck.click();
+
+        // Billing Address
+        // First Name
+        WebElement firstName =  driver.findElement(By.name("fname"));
+        firstName.sendKeys("Nimesha");
+
+        // Last Name
+        WebElement lastName =  driver.findElement(By.name("lname"));
+        lastName.sendKeys("Perera");
+
+        // Email
+        WebElement email = driver.findElement(By.name("emailid"));
+        email.sendKeys("nimesha@gmail.com");
+
+        // Address
+        WebElement address = driver.findElement(By.name("addr"));
+        address.sendKeys("Matara");
+
+        // Mobile Number
+        WebElement mobile = driver.findElement(By.name("telephoneno"));
+        mobile.sendKeys("0779898223");
+
+        // Click Reset Button
+        WebElement resetBtn = driver.findElement(By.cssSelector("input[value='Reset']"));
+        resetBtn.click();
+    }
+
+    @Test
+    public void close(){
+        // Close Browser
+        this.driver.quit();
+    }
 
 }
+
+
+
+
+
 
