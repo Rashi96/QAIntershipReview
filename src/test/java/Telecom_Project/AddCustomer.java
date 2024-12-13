@@ -197,5 +197,26 @@ public class AddCustomer {
 
     }
 
+    @Test
+    public void TC_009(){ //Verify that user cannot submit the form with giving numbers to "Last name"  field
+
+        // Navigate Add customer
+        driver.get("https://demo.guru99.com/telecom/addcustomer.php");
+
+        // Last Name
+        WebElement lastName =  driver.findElement(By.name("lname"));
+        lastName.sendKeys("123234");
+
+        // Locate the validation message
+        WebElement validationMessage = driver.findElement(By.id("message50"));
+
+        // Validate the error message
+        String expectedMessage = "Numbers are not allowed";
+        String actualMessage = validationMessage.getText();
+        Assert.assertEquals(actualMessage, expectedMessage, "Validation message text does not match.");
+
+
+    }
+
 }
 
