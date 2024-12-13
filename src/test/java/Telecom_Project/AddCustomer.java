@@ -112,8 +112,6 @@ public class AddCustomer {
         WebElement submitBtn = driver.findElement(By.name("submit"));
         submitBtn.click();
 
-        // popup msg
-
     }
 
     @Test
