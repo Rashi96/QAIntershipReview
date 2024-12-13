@@ -235,11 +235,119 @@ public class AddCustomer {
         String actualMessage = validationMessage.getText();
         Assert.assertEquals(actualMessage, expectedMessage, "Validation message text does not match.");
 
+    }
 
+    @Test
+    public void TC_011(){ // Verify that user cannot submit the form with giving alphanumerical value to the "Last name" field
+
+        // Navigate Add customer
+        driver.get("https://demo.guru99.com/telecom/addcustomer.php");
+
+        // Last Name
+        WebElement lastName =  driver.findElement(By.name("lname"));
+        lastName.sendKeys("nime123");
+
+        // Locate the validation message
+        WebElement validationMessage = driver.findElement(By.id("message50"));
+
+        // Validate the error message
+        String expectedMessage = "Numbers are not allowed";
+        String actualMessage = validationMessage.getText();
+        Assert.assertEquals(actualMessage, expectedMessage, "Validation message text does not match.");
+
+    }
+
+    @Test
+    public void TC_012(){ // Verify that user cannot submit the form when "Last name" field empty
+
+        // Navigate Add customer
+        //driver.get("https://demo.guru99.com/telecom/addcustomer.php");
+
+        // Last Name
+        WebElement lastName =  driver.findElement(By.name("lname"));
+        lastName.sendKeys("Perera");
+        lastName.clear();
+
+        // Locate the validation message
+        WebElement validationMessage = driver.findElement(By.id("message9"));
+
+        // Validate the error message
+        String expectedMessage = "Customer name must not be blank";
+        String actualMessage = validationMessage.getText();
+        Assert.assertEquals(actualMessage, expectedMessage, "Validation message text does not match.");
+
+    }
+
+    @Test
+    public void TC_013(){ // Verify that user cannot submit the form with invalid email
+
+        // Navigate Add customer
+        driver.get("https://demo.guru99.com/telecom/addcustomer.php");
+
+        // Email
+        WebElement email = driver.findElement(By.name("emailid"));
+        email.sendKeys("nimeshagmail.com");
+
+        // Locate the validation message
+        WebElement validationMessage = driver.findElement(By.id("message9"));
+
+        // Validate the error message
+        String expectedMessage = "Email-ID is not valid";
+        String actualMessage = validationMessage.getText();
+        Assert.assertEquals(actualMessage, expectedMessage, "Validation message text does not match.");
+
+    }
+
+    @Test
+    public void TC_014(){ // Verify that user cannot submit the form with empty email
+
+        // Navigate Add customer
+        driver.get("https://demo.guru99.com/telecom/addcustomer.php");
+
+        // Email
+        WebElement email = driver.findElement(By.name("emailid"));
+        email.sendKeys("nimesha@gmail.com");
+        email.clear();
+
+        // Locate the validation message
+        WebElement validationMessage = driver.findElement(By.id("message9"));
+
+        // Validate the error message
+        String expectedMessage = "Email-ID must not be blank";
+        String actualMessage = validationMessage.getText();
+        Assert.assertEquals(actualMessage, expectedMessage, "Validation message text does not match.");
+
+    }
+
+    @Test
+    public void TC_015(){ //Verify that user cannot submit the form with empty address
+
+        // Navigate Add customer
+        driver.get("https://demo.guru99.com/telecom/addcustomer.php");
+
+        // Address
+        WebElement address = driver.findElement(By.name("addr"));
+        address.sendKeys("Matara");
+        address.clear();
+
+        // Locate the validation message
+        WebElement validationMessage = driver.findElement(By.id("message3"));
+
+        // Validate the error message
+        String expectedMessage = "Address Field must not be blank";
+        String actualMessage = validationMessage.getText();
+        Assert.assertEquals(actualMessage, expectedMessage, "Validation message text does not match.");
+
+    }
+
+    @Test
+    public void TC_016(){ //Verify that user can fill the address field with address special characters
 
 
 
     }
+
+
 
 
 
