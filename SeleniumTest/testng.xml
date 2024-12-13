@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd"><suite name="All Test Suite"><test verbose="2" preserve-order="true" name="F:/fyp/IdeaProjects/SeleniumTest"><classes><class name="telecomProject.AddCustomerPage"><methods><include name="AddCustomer01"/><include name="AddCustomer02"/><include name="AddCustomer03"/><include name="AddCustomer04"/><include name="AddCustomer05"/></methods></class></classes></test></suite>
