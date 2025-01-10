@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="Guru99-Insurance Project Test Suite">
+
+    <listeners>
+            <listener class-name="Utilities.Reporting" />
+    </listeners>
+
+    <test name="Login Page">
+        <parameter name="browser" value="chrome"/>
+        <classes>
+            <class name="TestCases.LoginPageTest"></class>
+        </classes>
+    </test>
+
+<!--    <test name="Profile Page">-->
+<!--        <parameter name="browser" value="chrome"/>-->
+<!--        <classes>-->
+<!--            <class name="TestCases.ProfilePageTest"></class>-->
+<!--        </classes>-->
+<!--    </test>-->
+
+<!--    <test name=" Edit Profile Page">-->
+<!--        <parameter name="browser" value="chrome"/>-->
+<!--        <classes>-->
+<!--            <class name="TestCases.EditProfilePageTest"></class>-->
+<!--        </classes>-->
+<!--    </test>-->
+
+<!--    <test name="Request Quotation Page">-->
+<!--        <parameter name="browser" value="chrome"/>-->
+<!--        <classes>-->
+<!--            <class name="TestCases.RequestQuotationTest"></class>-->
+<!--        </classes>-->
+<!--    </test>-->
+
+<!--    <test name="Retrieve Quotation">-->
+<!--        <parameter name="browser" value="chrome"/>-->
+<!--        <classes>-->
+<!--            <class name="TestCases.RetrieveQuotationTest"></class>-->
+<!--        </classes>-->
+<!--    </test>-->
+
+</suite>
+
+
+
+
+
+
