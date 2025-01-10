@@ -15,7 +15,7 @@ public class BankHomeTests extends BaseClass {
         BHP = new BankHomePage(driver);
         BHP.setEmail(email);
         BHP.clickSubmitBtn();
-        String expectedText = "Access details to demo site.123";
+        String expectedText = "Access details to demo site.";
         String actualTest = BHP.textOfSuccessMsg();
         Assert.assertEquals(actualTest , expectedText ,"Unable to load the access details page");
     }
